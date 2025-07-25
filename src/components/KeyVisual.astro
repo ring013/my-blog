@@ -1,0 +1,55 @@
+---
+// KeyVisual.astro
+---
+
+<section class="keyvisual">
+  <div class="inner">
+    <h1 class="title">Blog</h1>
+    <p class="subtitle">
+      カスタマーサポート職からエンジニアを目指して学習中。<br />
+      ここでは勉強の過程やスタバ愛を綴っています。
+    </p>
+  </div>
+</section>
+
+<style>
+
+
+  .keyvisual {
+    background: linear-gradient(135deg, #1e3932 0%, #00704a 100%);
+    color: #fff;
+    padding: 6rem 2rem;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+  }
+
+  .inner {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #e8e8e8;
+    font-weight: 400;
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2.2rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+    }
+  }
+</style>

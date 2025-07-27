@@ -1,18 +1,39 @@
----
-// src/components/Footer.astro
-const year = new Date().getFullYear();
----
-
-<div class="footer">
-    <p>© {year} My Blog. All rights reserved.</p>
-</div>
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Contact</a>
+      <a href="#">Top</a>
+    </div>
+    <p>&copy; 2025 Gira's Blog. All rights reserved.</p>
+  </div>
+</footer>
 
 <style>
-    .footer {
-        margin-top: 4rem;
-        padding: 2rem 0;
-        border-top: 1px solid #eee;
-        text-align: center;
-        color: #666;
-    }
+  .site-footer {
+    background-color: #cdcdcd;
+    color: #fffdfd;
+    padding: 3rem 1rem;
+    text-align: center;
+    margin-top: 10rem;
+    font-size: 0.9rem;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .footer-links a {
+    color: #fffdfd;
+    margin: 0 0.5rem;
+    text-decoration: none;
+  }
+
+  .footer-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
 </style>

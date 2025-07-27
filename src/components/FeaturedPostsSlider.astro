@@ -1,0 +1,124 @@
+---
+const { posts } = Astro.props;
+const totalSlides = posts.length;
+---
+
+<div class="slider-container">
+  <div class="slider-track" id="sliderTrack" data-total={totalSlides}>
+    {posts.map((post, index) => (
+      <div
+        class="slide"
+        style={`left: ${index * 100}%`}
+        key={`slide-${index}`}
+      >
+        <a href={`/blog/${post.slug}`}>
+          <img src={post.data.image || '/images/img-test.png'} alt={post.data.title} />
+          <div class="caption">
+            <h3>{post.data.title}</h3>
+          </div>
+        </a>
+      </div>
+    ))}
+  </div>
+  <div class="slider-dots">
+    {posts.map((_, index) => (
+      <button class="dot" data-index={index} key={`dot-${index}`}></button>
+    ))}
+  </div>
+</div>
+
+<style>
+  .slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 240px;
+    margin-top: 2rem;
+  }
+
+  .slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+  }
+
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+  }
+
+  .caption {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+  }
+
+  .slider-dots {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+  }
+
+  .dot.active {
+    background: white;
+  }
+</style>
+
+<script is:inline>
+  let currentIndex = 0;
+
+  function slideTo(index) {
+    const track = document.getElementById('sliderTrack');
+    if (!track) return;
+    currentIndex = index;
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    document.querySelectorAll('.dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('sliderTrack');
+    const total = Number(track?.dataset.total || 0);
+    const dots = document.querySelectorAll('.dot');
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', (e) => {
+        const index = Number(e.target.getAttribute('data-index'));
+        slideTo(index);
+      });
+    });
+
+    slideTo(0);
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % total;
+      slideTo(currentIndex);
+    }, 5000);
+  });
+</script>

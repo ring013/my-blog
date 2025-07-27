@@ -1,46 +1,157 @@
----
-// src/components/Header.astro
----
-
-<div class="header">
+<header class="header">
+  <div class="container">
     <div class="logo">
-        <a href="/">My Blog</a>
+      <a href="/">Gira</a>
     </div>
-    <nav>
-        <ul>
-            <li><a href="/">ホーム</a></li>
-            <li><a href="/blog">ブログ</a></li>
-            <li><a href="/about">プロフィール</a></li>
-        </ul>
+
+    <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-overlay" id="nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/about">Profile</a></li>
+      </ul>
     </nav>
-</div>
+  </div>
+</header>
+
+<script>
+  const toggleButton = document.getElementById("menu-toggle");
+  const navMenu = document.getElementById("nav");
+
+  toggleButton?.addEventListener("click", () => {
+    toggleButton.classList.toggle("open");
+    navMenu?.classList.toggle("open");
+    document.body.classList.toggle("no-scroll");
+  });
+</script>
 
 <style>
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 0;
-        border-bottom: 1px solid #eee;
-        margin-bottom: 2rem;
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    padding: 0.75rem 0;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    font-family: inherit;
+  }
+
+  .container {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo a {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #1e3932;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1rem;
+    height: 1rem;
+    gap: 0.4rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2100;
+  }
+
+  .menu-toggle span {
+    width: 2rem;
+    height: 0.2rem;
+    background-color: #1e3932;
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .nav-overlay {
+    display: flex;
+  }
+
+  .nav-overlay ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-overlay a {
+    font-family: inherit;
+    color: #1e3932;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  /* === モバイルスタイル === */
+  @media (max-width: 1024px) {
+    .menu-toggle {
+      display: flex;
     }
-    .logo a {
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-decoration: none;
-        color: #333;
+
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.97);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+      z-index: 2000;
     }
-    nav ul {
-        display: flex;
-        gap: 1.5rem;
-        list-style: none;
+
+    .nav-overlay.open {
+      display: flex;
     }
-    nav a {
-        text-decoration: none;
-        color: #333;
-        font-weight: 500;
+
+    .nav-overlay ul {
+      flex-direction: column;
+      gap: 2rem;
     }
-    nav a:hover {
-        color: #0066cc;
-    }
+  }
+
+  .no-scroll {
+    overflow: hidden;
+  }
 </style>
+
+<!-- フォント読み込み -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">

@@ -1,55 +1,145 @@
 ---
-// KeyVisual.astro
+// src/components/KeyVisual.astro
 ---
 
-<section class="keyvisual">
-  <div class="inner">
-    <h1 class="title">Blog</h1>
-    <p class="subtitle">
-      カスタマーサポート職からエンジニアを目指して学習中。<br />
-      ここでは勉強の過程やスタバ愛を綴っています。
-    </p>
+<section class="kv-center">
+  <div class="logo-box">
+    <img src="/images/Gira.png" alt="Giraのロゴ" class="kv-logo" />
+    <div class="logo-text">
+      <span style="--i:0">G</span>
+      <span style="--i:1">i</span>
+      <span style="--i:2">r</span>
+      <span style="--i:3">a</span>
+      <span style="--i:4">’</span>
+      <span style="--i:5">s</span>
+      <span style="--i:6">&nbsp;</span>
+      <span style="--i:7">B</span>
+      <span style="--i:8">l</span>
+      <span style="--i:9">o</span>
+      <span style="--i:10">g</span>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span class="scroll-text">Scroll</span>
+    <div class="arrow"></div>
   </div>
 </section>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
+.kv-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 60vh;
+  padding-top: 15rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  position: relative;
+  background-color: #fff;
+}
 
-  .keyvisual {
-    background: linear-gradient(135deg, #1e3932 0%, #00704a 100%);
-    color: #fff;
-    padding: 6rem 2rem;
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+.logo-box {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.kv-logo {
+  width: 220px;
+  height: auto;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: logoFadeIn 2s ease-out forwards;
+}
+
+.logo-text {
+  display: flex;
+  gap: 3px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #333;
+}
+
+.logo-text span {
+  display: inline-block;
+  opacity: 0;
+  animation: letterFade 0.3s ease-out forwards;
+  animation-delay: calc(var(--i) * 0.2s + 2.2s);
+}
+
+@keyframes letterFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-
-  .inner {
-    max-width: 960px;
-    margin: 0 auto;
-    text-align: center;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  .title {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+@keyframes logoFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
   }
-
-  .subtitle {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #e8e8e8;
-    font-weight: 400;
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
+}
 
-  @media (max-width: 768px) {
-    .title {
-      font-size: 2.2rem;
-    }
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #777;
+  font-size: 0.9rem;
+  animation: fadein 2s ease-in-out;
+}
 
-    .subtitle {
-      font-size: 1rem;
-    }
+.scroll-text {
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  animation: floatFade 2.5s ease-in-out infinite;
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  border-bottom: 2px solid #999;
+  border-right: 2px solid #999;
+  transform: rotate(45deg);
+  animation: floatFade 2.5s ease-in-out infinite;
+}
+
+@keyframes floatFade {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translateY(0);
   }
+  50% {
+    opacity: 1;
+    transform: rotate(45deg) translateY(8px);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translateY(0);
+  }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 </style>

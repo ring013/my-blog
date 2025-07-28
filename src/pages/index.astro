@@ -8,16 +8,37 @@ import FeaturedPostsSlider from '../components/FeaturedPostsSlider.astro';
 const posts = await getCollection('blog');
 ---
 
-<BaseLayout title="ギラのスタバ風ブログ">
+<BaseLayout title="Gira's Blog">
   <KeyVisual />
-  <FeaturedPostsSlider posts={posts.slice(0, 5)} />
+
+  <!-- ✅ Topicsセクション追加 -->
+  <section class="featured-section">
+    <h2 class="featured-title">Topics</h2>
+    <FeaturedPostsSlider posts={posts.slice(0, 5)} />
+  </section>
+
   <section class="blog-section">
-    <h2>記事一覧</h2>
+    <h2 class="featured-title">Journal</h2>
     <ArticleGrid posts={posts} />
   </section>
 </BaseLayout>
 
 <style>
+  .featured-section {
+    background-color: #f0efef;
+    padding: 1rem 2rem 3rem;
+    text-align: center;
+  }
+
+  .featured-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #000;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+  }
+
   .blog-section {
     margin-top: 4rem;
     padding: 0 1rem;

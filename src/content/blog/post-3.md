@@ -1,24 +1,19 @@
 ---
-title: "はじめてのAstroブログ"
-date: 2025-07-22
-tags: ["Astro", "ブログ"]
-description: "Astroで作った初めてのブログ投稿です。"
+title: "Hamamatu castle Store"
+date: 2025-07-29
+tags: ["cafe", "Starbucks"]
+description: "city Starbucks"
 image: "/public/images/forest.jpg"
 ---
 
-# Astroでブログサイトを作る方法
+## ◼︎Store
 
-Astroは静的サイト生成に特化したモダンなJavaScriptフレームワークです。このポストでは、Astroを使って基本的なブログサイトを構築する方法を紹介します。
+Hamamatu-city Shizuoka
 
-## Astroの特徴
+## ◼︎Store information
 
-- 高速なサイト生成
-- ミニマルなJavaScriptの出力
-- 様々なUIフレームワークとの互換性
-- コンテンツ中心のウェブサイトに最適
+浜松城公園内の木立に囲まれた自然と融合したストア
 
-## インストール方法
+## ◼︎Recommended Menu
 
-```bash
-npm create astro@latest my-blog-site
-```
+スパイシーチャイラテ

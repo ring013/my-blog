@@ -9,6 +9,9 @@ const { frontmatter } = Astro.props;
   <slot name="header" slot="header" />
 
   <article class="blog-article">
+    {frontmatter.image && (
+      <img src={frontmatter.image} alt={frontmatter.title} class="blog-hero-image" />
+    )}
 
     <h1 class="main-title">{frontmatter.title}</h1>
     <p class="date">投稿日: {new Date(frontmatter.date).toLocaleDateString('ja-JP')}</p>
@@ -20,7 +23,7 @@ const { frontmatter } = Astro.props;
     </div>
 
     <div class="content">
-      <slot /> <!-- Markdown記事本文がここに差し込まれます -->
+      <slot /> <!-- Markdown本文がここに入る -->
     </div>
   </article>
 
@@ -37,12 +40,15 @@ const { frontmatter } = Astro.props;
 }
 
 .blog-hero-image {
-  width: 100%;
+  width: 80%; 
+  max-width: 600px; 
   height: auto;
   border-radius: 12px;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem; 
+  display: block;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
 
 .main-title {
   font-size: 2.6rem;

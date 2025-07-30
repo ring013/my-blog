@@ -1,0 +1,63 @@
+---
+import type { Post } from '../types';
+const { posts } = Astro.props as { posts: Post[] };
+---
+
+<section class="blog-list">
+  {posts.map((post) => (
+    <article class="blog-card">
+      <a href={`/blog/${post.slug}`}>
+        <img src={post.data.image || '/images/img-test.png'} alt={post.data.title} />
+        <h3>{post.data.title}</h3>
+      </a>
+    </article>
+  ))}
+</section>
+
+<style>
+  .blog-list {
+    padding-top: 100px; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .blog-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    background-color: white;
+  }
+
+  .blog-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .blog-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .blog-card h3 {
+    margin: 1rem;
+    font-size: 1.2rem;
+    color: #111;
+  }
+
+  .blog-card p {
+    margin: 0 1rem 0.5rem;
+    color: #555;
+    font-size: 0.95rem;
+  }
+
+  .date {
+    display: block;
+    margin: 0 1rem 1rem;
+    font-size: 0.8rem;
+    color: #999;
+  }
+</style>

@@ -11,42 +11,71 @@ const posts = await getCollection('blog');
 <BaseLayout title="Gira's Blog">
   <KeyVisual />
 
-  <!-- ✅ Topicsセクション追加 -->
-  <section class="featured-section">
+  <section class="featured-section fade-in">
     <h2 class="featured-title">Topics</h2>
     <FeaturedPostsSlider posts={posts.slice(0, 5)} />
   </section>
 
-  <section class="blog-section">
+  <section class="blog-section fade-in">
     <h2 class="featured-title">Journal</h2>
     <ArticleGrid posts={posts} />
   </section>
+
+  <script is:inline>
+    window.addEventListener('load', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+      });
+
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+
+  <style>
+    .featured-section {
+      background-color: #f0efef;
+      padding: 1rem 2rem 3rem;
+      text-align: center;
+    }
+
+    .featured-title {
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: #000;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+    }
+
+    .blog-section {
+      margin-top: 4rem;
+      padding: 0 1rem;
+    }
+
+    .blog-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #1e3932;
+    }
+
+    /* ふんわり表示アニメーション */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1.2s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </BaseLayout>
-
-<style>
-  .featured-section {
-    background-color: #f0efef;
-    padding: 1rem 2rem 3rem;
-    text-align: center;
-  }
-
-  .featured-title {
-    font-size: 2.2rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: #000;
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-  }
-
-  .blog-section {
-    margin-top: 4rem;
-    padding: 0 1rem;
-  }
-
-  .blog-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: #1e3932;
-  }
-</style>

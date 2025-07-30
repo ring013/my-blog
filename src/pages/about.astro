@@ -8,74 +8,227 @@ import Footer from '../components/Footer.astro';
 <BaseLayout title="プロフィール">
   <Header slot="header" />
 
-  <section class="about">
-    <div class="profile-container">
-      <div class="profile-image">
-        <img src="/images/profile.jpg" alt="プロフィール画像" />
-      </div>
-      <div class="profile-content">
-        <h1>About Me</h1>
-        <p>はじめまして、[あなたの名前]です。</p>
-        <p>このブログでは、Web開発やプログラミング、趣味の旅行や読書について発信しています。</p>
-
-        <h2>経歴</h2>
-        <p>ここに簡単な経歴や自己紹介を記入してください。</p>
-
-        <h2>スキル</h2>
-        <ul>
-          <li>HTML/CSS</li>
-          <li>JavaScript</li>
-          <li>Astro</li>
-          <li>React</li>
-        </ul>
-
-        <h2>連絡先</h2>
-        <p>TwitterやGitHubなどのSNSリンクを設置してください。</p>
+  <main class="page-container">
+    <!-- 常時表示される名前部分 -->
+    <div class="profile">
+      <img src="/images/profile1.jpg" alt="ギラのプロフィール画像" class="profile-image" />
+      <div class="profile-info">
+        <h1 class="gradient-text profile-name">Gira</h1>
+        <p class="job-title">Customer Support Trainer / Aspiring Engineer</p>
       </div>
     </div>
-  </section>
+
+    <!-- 以下、スクロールで順にふわっと表示 -->
+    <section class="fade-in delay-1">
+      <h2 class="section-title">Profile</h2>
+      <p>兵庫在住。</p>
+      <p>現在、Web開発を学習中。</p>
+    </section>
+
+    <section class="fade-in delay-2">
+      <h2 class="section-title">Skills</h2>
+      <ul>
+        <li>HTML / CSS</li>
+        <li>JavaScript</li>
+        <li>Astro</li>
+      </ul>
+    </section>
+
+    <section class="fade-in delay-3">
+      <h2 class="section-title">Career</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-line"></div>
+          <div class="circle"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2022 - Present</span>
+            <h3>株式会社yellow</h3>
+            <p>CSトレーナー</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-line"></div>
+          <div class="circle"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2016 - 2023</span>
+            <h3>株式会社blue</h3>
+            <p>CS SV</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-line"></div>
+          <div class="circle"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2004 - 2008</span>
+            <h3>pink university</h3>
+            <p>臨床心理学を学ぶ</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <Footer slot="footer" />
 </BaseLayout>
 
+<!-- アニメーションスクリプト -->
+<script is:inline>
+  window.addEventListener('load', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.3,
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  });
+</script>
+
 <style>
-  .about {
-    padding: 2rem 0;
+  .page-container {
+    padding: 9rem 1.5rem 3rem;
+    max-width: 880px;
+    margin: 0 auto;
   }
-  .profile-container {
+
+  /* 名前表示部分 */
+  .profile {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
   }
+
   .profile-image {
-    text-align: center;
-  }
-  .profile-image img {
-    width: 200px;
+    width: 150px;
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
   }
-  h1 {
-    margin-bottom: 1rem;
-  }
-  h2 {
-    margin: 1.5rem 0 0.5rem;
-  }
-  ul {
-    margin-left: 1.5rem;
+
+  .profile-name {
+    font-size: 2.5rem;
+    margin: 0;
   }
 
-  @media (min-width: 768px) {
-    .profile-container {
-      flex-direction: row;
-      align-items: flex-start;
+  .gradient-text {
+    background: linear-gradient(to right, #008080, #1e3932);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .job-title {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  /* セクション共通 */
+  section {
+    margin-top: 3rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #1e3932;
+    font-weight: bold;
+  }
+
+  section ul {
+    padding-left: 1.5rem;
+  }
+
+  /* タイムライン装飾 */
+  .timeline {
+    position: relative;
+    margin-top: 2rem;
+    padding-left: 2rem;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .timeline-line {
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #ccc;
+  }
+
+  .circle {
+    position: absolute;
+    left: -0.25rem;
+    top: 0.3rem;
+    width: 14px;
+    height: 14px;
+    background-color: #1e3932;
+    border: 3px solid white;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 0 2px #1e3932;
+  }
+
+  .timeline-content {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .timeline-content h3 {
+    margin: 0.3rem 0;
+    font-size: 1.1rem;
+  }
+
+  .timeline-date {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #666;
+  }
+
+  /* アニメーション */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.8s ease, transform 1.8s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 順番に表示 */
+  .delay-1 {
+    transition-delay: 0.2s;
+  }
+
+  .delay-2 {
+    transition-delay: 0.6s;
+  }
+
+  .delay-3 {
+    transition-delay: 1s;
+  }
+
+  @media (max-width: 720px) {
+    .profile {
+      flex-direction: column;
+      text-align: center;
     }
+
     .profile-image {
-      flex: 0 0 30%;
-    }
-    .profile-content {
-      flex: 1;
+      margin-bottom: 1rem;
     }
   }
 </style>

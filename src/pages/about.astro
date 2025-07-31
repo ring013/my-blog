@@ -11,7 +11,7 @@ import Footer from '../components/Footer.astro';
   <Header client:load slot="header" />
 
   <main class="page-container">
-    <!-- 常時表示される名前部分 -->
+    
     <div class="profile">
       <img src="/images/profile1.jpg" alt="ギラのプロフィール画像" class="profile-image" />
       <div class="profile-info">
@@ -20,7 +20,6 @@ import Footer from '../components/Footer.astro';
       </div>
     </div>
 
-    <!-- 以下、スクロールで順にふわっと表示 -->
     <section class="fade-in delay-1">
       <h2 class="section-title">Profile</h2>
       <p>兵庫在住。</p>
@@ -73,7 +72,6 @@ import Footer from '../components/Footer.astro';
   <Footer slot="footer" />
 </BaseLayout>
 
-<!-- アニメーションスクリプト -->
 <script is:inline>
   window.addEventListener('load', () => {
     const observer = new IntersectionObserver((entries) => {
@@ -97,7 +95,6 @@ import Footer from '../components/Footer.astro';
     margin: 0 auto;
   }
 
-  /* 名前表示部分 */
   .profile {
     display: flex;
     align-items: center;
@@ -129,7 +126,6 @@ import Footer from '../components/Footer.astro';
     color: #555;
   }
 
-  /* セクション共通 */
   section {
     margin-top: 3rem;
   }
@@ -145,7 +141,6 @@ import Footer from '../components/Footer.astro';
     padding-left: 1.5rem;
   }
 
-  /* タイムライン装飾 */
   .timeline {
     position: relative;
     margin-top: 2rem;
@@ -198,7 +193,6 @@ import Footer from '../components/Footer.astro';
     color: #666;
   }
 
-  /* アニメーション */
   .fade-in {
     opacity: 0;
     transform: translateY(50px);
@@ -210,7 +204,6 @@ import Footer from '../components/Footer.astro';
     transform: translateY(0);
   }
 
-  /* 順番に表示 */
   .delay-1 {
     transition-delay: 0.2s;
   }

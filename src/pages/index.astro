@@ -66,7 +66,6 @@ const posts = await getCollection('blog');
       color: #1e3932;
     }
 
-    /* ふんわり表示アニメーション */
     .fade-in {
       opacity: 0;
       transform: translateY(40px);
@@ -76,6 +75,26 @@ const posts = await getCollection('blog');
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* ↓↓↓ モバイル対応（768px以下） ↓↓↓ */
+    @media (max-width: 768px) {
+      .featured-section {
+        padding: 1rem;
+      }
+
+      .featured-title {
+        font-size: 1.6rem;
+      }
+
+      .blog-section {
+        padding: 0 1rem;
+      }
+
+      .blog-section h2 {
+        font-size: 1.4rem;
+        text-align: center;
+      }
     }
   </style>
 </BaseLayout>

@@ -1,8 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  content: {
-    // オプションがあればここに入れる（今は不要）
-  },
+  site: 'https://ring013.github.io/my-blog',
+  base: '/my-blog/',
+  output: 'static',
 });
-

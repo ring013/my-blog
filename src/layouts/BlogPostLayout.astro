@@ -24,75 +24,95 @@ const { frontmatter } = Astro.props;
       <slot /> <!-- Markdown本文がここに入る -->
     </div>
   </article>
+
+  <style>
+    .blog-article {
+      margin: 10rem auto 4rem;
+      padding: 0 1rem;
+      max-width: 760px;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+      color: #333;
+    }
+
+    .blog-hero-image {
+      width: 80%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 12px;
+      margin: 0 auto 2rem;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .main-title {
+      font-size: 2.6rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      color: #1e3932;
+      text-align: center;
+    }
+
+    .date {
+      color: #666;
+      font-size: 0.9rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      background-color: #f0f0f0;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: #333;
+    }
+
+    .content {
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .content h2 {
+      font-size: 1.6rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-left: 6px solid #1e3932;
+      padding-left: 0.8rem;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .content p {
+      margin-bottom: 1.6rem;
+      text-align: left;
+    }
+
+    /* ✅ スマホ対応 */
+    @media (max-width: 768px) {
+      .blog-article {
+        margin-top: 6rem;
+        padding: 0 1rem;
+      }
+
+      .main-title {
+        font-size: 2rem;
+      }
+
+      .content {
+        font-size: 0.95rem;
+      }
+
+      .blog-hero-image {
+        width: 100%;
+      }
+    }
+  </style>
 </BaseLayout>
-
-<style>
-.blog-article {
-  margin: 10rem auto 4rem;
-  padding: 0 1rem;
-  max-width: 760px;
-  font-family: 'Zen Kaku Gothic New', sans-serif;
-  color: #333;
-}
-
-.blog-hero-image {
-  width: 80%; 
-  max-width: 600px; 
-  height: auto;
-  border-radius: 12px;
-  margin: 0 auto 2rem; 
-  display: block;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.main-title {
-  font-size: 2.6rem;
-  margin-bottom: 0.8rem;
-  font-weight: 700;
-  color: #1e3932;
-  text-align: center;
-}
-
-.date {
-  color: #666;
-  font-size: 0.9rem;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.tag {
-  background-color: #f0f0f0;
-  padding: 0.3rem 0.8rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  color: #333;
-}
-
-.content {
-  line-height: 1.8;
-  font-size: 1rem;
-}
-
-.content h2 {
-  font-size: 1.6rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  border-left: 6px solid #1e3932;
-  padding-left: 0.8rem;
-  font-weight: 600;
-  text-align: left;
-}
-
-.content p {
-  margin-bottom: 1.6rem;
-  text-align: left;
-}
-</style>

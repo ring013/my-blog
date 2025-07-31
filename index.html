@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-37fxchfa> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Gira&#39;s Blog | My Blog</title><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- ✅ Google Fonts: 本文 + ロゴ --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" rel="stylesheet"><style>.header[data-astro-cid-3ef6ksr2]{position:fixed;top:0;left:0;width:100%;background-color:#fff;border-bottom:1px solid #ccc;padding:.75rem 0;z-index:1000;box-shadow:0 2px 6px #0000000d;font-family:inherit}.container[data-astro-cid-3ef6ksr2]{max-width:1024px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between}.logo[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{font-family:Dancing Script,cursive;font-size:2rem;font-weight:700;text-decoration:none;color:#1e3932}.menu-toggle[data-astro-cid-3ef6ksr2]{display:none;flex-direction:column;justify-content:center;align-items:center;width:1rem;height:1rem;gap:.4rem;background:none;border:none;cursor:pointer;z-index:2100}.menu-toggle[data-astro-cid-3ef6ksr2] span[data-astro-cid-3ef6ksr2]{width:2rem;height:.2rem;background-color:#1e3932;transition:all .3s ease}.menu-toggle[data-astro-cid-3ef6ksr2].open span[data-astro-cid-3ef6ksr2]:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.menu-toggle[data-astro-cid-3ef6ksr2].open span[data-astro-cid-3ef6ksr2]:nth-child(2){opacity:0}.menu-toggle[data-astro-cid-3ef6ksr2].open span[data-astro-cid-3ef6ksr2]:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}.nav-overlay[data-astro-cid-3ef6ksr2]{display:flex}.nav-overlay[data-astro-cid-3ef6ksr2] ul[data-astro-cid-3ef6ksr2]{display:flex;list-style:none;gap:2rem;margin:0;padding:0}.nav-overlay[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{font-family:inherit;color:#1e3932;text-decoration:none;font-size:1.1rem;font-weight:500;position:relative;padding-bottom:4px}.nav-overlay[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]:after{content:"";position:absolute;left:0;bottom:0;width:0%;height:2px;background:#1e393266;transition:width .3s ease}.nav-overlay[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]:hover:after,.nav-overlay[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active:after{width:100%}@media (max-width: 1024px){.menu-toggle[data-astro-cid-3ef6ksr2]{display:flex}.nav-overlay[data-astro-cid-3ef6ksr2]{display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#fffffff7;flex-direction:column;align-items:center;justify-content:center;padding:3rem;z-index:2000}.nav-overlay[data-astro-cid-3ef6ksr2].open{display:flex}.nav-overlay[data-astro-cid-3ef6ksr2] ul[data-astro-cid-3ef6ksr2]{flex-direction:column;gap:2rem}}.no-scroll[data-astro-cid-3ef6ksr2]{overflow:hidden}.site-footer[data-astro-cid-sz7xmlte]{background-color:#cdcdcd;color:#fffdfd;padding:1.5rem 1rem;text-align:center;margin-top:10rem;font-size:.9rem}.footer-content[data-astro-cid-sz7xmlte]{display:flex;flex-direction:column;align-items:center;gap:.8rem}.footer-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]{color:#fffdfd;margin:0 .5rem;text-decoration:none}.footer-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]:hover{color:#fff;text-decoration:underline}body{font-family:Zen Kaku Gothic New,sans-serif;line-height:1.6;color:#333;max-width:1200px;margin:0 auto;padding:0 20px}
+</style>
+<link rel="stylesheet" href="/my-blog/_astro/index.DKoB_PQj.css"></head> <body data-astro-cid-37fxchfa> <!-- ✅ 共通Header（JSを動かすため client:load を追加） --> <header class="header" data-astro-cid-3ef6ksr2> <div class="container" data-astro-cid-3ef6ksr2> <div class="logo" data-astro-cid-3ef6ksr2> <a href="/" data-astro-cid-3ef6ksr2>Gira</a> </div> <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く" data-astro-cid-3ef6ksr2> <span data-astro-cid-3ef6ksr2></span> <span data-astro-cid-3ef6ksr2></span> <span data-astro-cid-3ef6ksr2></span> </button> <nav class="nav-overlay" id="nav" data-astro-cid-3ef6ksr2> <ul data-astro-cid-3ef6ksr2> <li data-astro-cid-3ef6ksr2><a href="/" class="nav-link" data-path="/" data-astro-cid-3ef6ksr2>Home</a></li> <li data-astro-cid-3ef6ksr2><a href="/blog" class="nav-link" data-path="/blog" data-astro-cid-3ef6ksr2>Blog</a></li> <li data-astro-cid-3ef6ksr2> <a href="/about" class="nav-link" data-path="/about" data-astro-cid-3ef6ksr2>Profile</a> </li> </ul> </nav> </div> </header> <script>
+  console.log("Header script loaded");
+
+  window.addEventListener("DOMContentLoaded", () => {
+    console.log("DOMContentLoaded!");
+
+    const toggleButton = document.getElementById("menu-toggle");
+    const navMenu = document.getElementById("nav");
+
+    if (toggleButton && navMenu) {
+      toggleButton.addEventListener("click", () => {
+        console.log("Menu toggle clicked");
+        toggleButton.classList.toggle("open");
+        navMenu.classList.toggle("open");
+        document.body.classList.toggle("no-scroll");
+      });
+    }
+
+    const currentPath = window.location.pathname;
+    document.querySelectorAll(".nav-link").forEach((link) => {
+      if (link.getAttribute("data-path") === currentPath) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>  <!-- フォント読み込み --> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet"> <main data-astro-cid-37fxchfa>  <section class="kv-center" data-astro-cid-voup3a6i> <div class="logo-box" data-astro-cid-voup3a6i> <img src="/images/Gira.png" alt="Giraのロゴ" class="kv-logo" data-astro-cid-voup3a6i> <div class="logo-text" data-astro-cid-voup3a6i> <span style="--i:0" data-astro-cid-voup3a6i>G</span> <span style="--i:1" data-astro-cid-voup3a6i>i</span> <span style="--i:2" data-astro-cid-voup3a6i>r</span> <span style="--i:3" data-astro-cid-voup3a6i>a</span> <span style="--i:4" data-astro-cid-voup3a6i>’</span> <span style="--i:5" data-astro-cid-voup3a6i>s</span> <span style="--i:6" data-astro-cid-voup3a6i>&nbsp;</span> <span style="--i:7" data-astro-cid-voup3a6i>B</span> <span style="--i:8" data-astro-cid-voup3a6i>l</span> <span style="--i:9" data-astro-cid-voup3a6i>o</span> <span style="--i:10" data-astro-cid-voup3a6i>g</span> </div> </div> <div class="scroll-indicator" data-astro-cid-voup3a6i> <span class="scroll-text" data-astro-cid-voup3a6i>Scroll</span> <div class="arrow" data-astro-cid-voup3a6i></div> </div> </section>  <section class="featured-section fade-in" data-astro-cid-j7pv25f6> <h2 class="featured-title" data-astro-cid-j7pv25f6>Topics</h2> <section class="featured-posts" data-astro-cid-5nxbxxic> <div class="slider-container" data-astro-cid-5nxbxxic> <div class="slider-track" id="sliderTrack" data-total="3" data-astro-cid-5nxbxxic> <div class="slide" key="0" data-astro-cid-5nxbxxic> <a href="/blog/post-1" data-astro-cid-5nxbxxic> <img src="/public/images/city.jpg" alt="Minato Store" data-astro-cid-5nxbxxic> <div class="caption" data-astro-cid-5nxbxxic> <h3 data-astro-cid-5nxbxxic>Minato Store</h3> </div> </a> </div><div class="slide" key="1" data-astro-cid-5nxbxxic> <a href="/blog/post-2" data-astro-cid-5nxbxxic> <img src="/public/images/ocean.jpg" alt="Kansui Park Store" data-astro-cid-5nxbxxic> <div class="caption" data-astro-cid-5nxbxxic> <h3 data-astro-cid-5nxbxxic>Kansui Park Store</h3> </div> </a> </div><div class="slide" key="2" data-astro-cid-5nxbxxic> <a href="/blog/post-3" data-astro-cid-5nxbxxic> <img src="/public/images/forest.jpg" alt="Hamamatu castle Store" data-astro-cid-5nxbxxic> <div class="caption" data-astro-cid-5nxbxxic> <h3 data-astro-cid-5nxbxxic>Hamamatu castle Store</h3> </div> </a> </div> </div> <div class="slider-dots" data-astro-cid-5nxbxxic> <button class="dot" data-index="0" key="0" data-astro-cid-5nxbxxic></button><button class="dot" data-index="1" key="1" data-astro-cid-5nxbxxic></button><button class="dot" data-index="2" key="2" data-astro-cid-5nxbxxic></button> </div> <button class="slider-arrow left" id="prevBtn" data-astro-cid-5nxbxxic>←</button> <button class="slider-arrow right" id="nextBtn" data-astro-cid-5nxbxxic>→</button> </div> </section>  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('sliderTrack');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const total = Number(track?.dataset.total || 0);
+    let currentIndex = 0;
+
+    function updateSlider() {
+      if (!track) return;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', (e) => {
+        const index = Number(e.target.getAttribute('data-index'));
+        currentIndex = index;
+        updateSlider();
+      });
+    });
+
+    prevBtn?.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + total) % total;
+      updateSlider();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % total;
+      updateSlider();
+    });
+
+    updateSlider();
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % total;
+      updateSlider();
+    }, 5000);
+  });
+</script> </section> <section class="blog-section fade-in" data-astro-cid-j7pv25f6> <h2 class="featured-title" data-astro-cid-j7pv25f6>Journal</h2> <div class="article-grid" data-astro-cid-synqgp74> <a href="/blog/post-1" class="article-link" data-astro-cid-synqgp74> <article class="article-card" data-astro-cid-synqgp74> <img src="/public/images/city.jpg" alt="Minato Store" data-astro-cid-synqgp74> <div class="article-card-content" data-astro-cid-synqgp74> <p class="meta" data-astro-cid-synqgp74> <span class="category" data-astro-cid-synqgp74></span> <time class="date" datetime="2025-07-22T00:00:00.000Z" data-astro-cid-synqgp74> 2025/7/22 </time> </p> <h3 data-astro-cid-synqgp74>Minato Store</h3> </div> </article> </a><a href="/blog/post-2" class="article-link" data-astro-cid-synqgp74> <article class="article-card" data-astro-cid-synqgp74> <img src="/public/images/ocean.jpg" alt="Kansui Park Store" data-astro-cid-synqgp74> <div class="article-card-content" data-astro-cid-synqgp74> <p class="meta" data-astro-cid-synqgp74> <span class="category" data-astro-cid-synqgp74></span> <time class="date" datetime="2025-07-25T00:00:00.000Z" data-astro-cid-synqgp74> 2025/7/25 </time> </p> <h3 data-astro-cid-synqgp74>Kansui Park Store</h3> </div> </article> </a><a href="/blog/post-3" class="article-link" data-astro-cid-synqgp74> <article class="article-card" data-astro-cid-synqgp74> <img src="/public/images/forest.jpg" alt="Hamamatu castle Store" data-astro-cid-synqgp74> <div class="article-card-content" data-astro-cid-synqgp74> <p class="meta" data-astro-cid-synqgp74> <span class="category" data-astro-cid-synqgp74></span> <time class="date" datetime="2025-07-29T00:00:00.000Z" data-astro-cid-synqgp74> 2025/7/29 </time> </p> <h3 data-astro-cid-synqgp74>Hamamatu castle Store</h3> </div> </article> </a> </div>  </section> <script>
+    window.addEventListener('load', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+      });
+
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-content" data-astro-cid-sz7xmlte> <div class="footer-links" data-astro-cid-sz7xmlte> <a href="#" data-astro-cid-sz7xmlte>Privacy Policy</a> <a href="#" data-astro-cid-sz7xmlte>Contact</a> <a href="#" data-astro-cid-sz7xmlte>Top</a> </div> <p data-astro-cid-sz7xmlte>&copy; 2025 Gira's Blog. All rights reserved.</p> </div> </footer>  </body></html>

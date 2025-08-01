@@ -1,67 +1,70 @@
 ---
 // src/components/BlogList.astro
 import type { Post } from '../types';
-const { posts } = Astro.props as { posts: Post[] };
+
+interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
-<section class="blog-list">
-  {posts.map((post) => (
-    <article class="blog-card">
-      <a href={`${base}blog/${post.slug}/index.html`}>
-        {post.data.image && (
-          <img src={`${base}${post.data.image}`} alt={post.data.title} />
-        )}
-        <h3>{post.data.title}</h3>
-      </a>
-    </article>
-  ))}
+<section class="blog-posts">
+  <div class="post-grid">
+    {posts.map((post) => (
+      <article class="post-card fade-in">
+        <a href={`${base}blog/${post.slug}`}>
+          <img
+            src={`${base}${post.data.image ?? 'images/img-test.png'}`}
+            alt={post.data.title}
+          />
+          <h2>{post.data.title}</h2>
+          <p>{post.data.description}</p>
+        </a>
+      </article>
+    ))}
+  </div>
 </section>
 
 <style>
-  .blog-list {
-    padding-top: 100px;
+  .blog-posts {
+    padding: 2rem;
+  }
+
+  .post-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
   }
 
-  .blog-card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: box-shadow 0.3s ease;
-    background-color: white;
+  .post-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
   }
 
-  .blog-card:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  .post-card:hover {
+    transform: translateY(-5px);
   }
 
-  .blog-card img {
+  .post-card img {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    height: auto;
+    border-radius: 8px;
   }
 
-  .blog-card h3 {
-    margin: 1rem;
-    font-size: 1.2rem;
-    color: #111;
+  .post-card h2 {
+    margin-top: 0.75rem;
+    font-size: 1.25rem;
+    color: #333;
   }
 
-  .blog-card p {
-    margin: 0 1rem 0.5rem;
-    color: #555;
-    font-size: 0.95rem;
-  }
-
-  .date {
-    display: block;
-    margin: 0 1rem 1rem;
-    font-size: 0.8rem;
-    color: #999;
+  .post-card p {
+    font-size: 1rem;
+    color: #666;
   }
 </style>

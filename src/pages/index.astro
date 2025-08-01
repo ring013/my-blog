@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import KeyVisual from '../components/KeyVisual.astro';
-import ArticleGrid from '../components/ArticleGrid.astro';
 import FeaturedPostsSlider from '../components/FeaturedPostsSlider.astro';
 
 const posts = await getCollection('blog');
@@ -14,11 +13,6 @@ const posts = await getCollection('blog');
   <section class="featured-section fade-in">
     <h2 class="featured-title">Topics</h2>
     <FeaturedPostsSlider posts={posts.slice(0, 5)} />
-  </section>
-
-  <section class="blog-section fade-in">
-    <h2 class="featured-title">Journal</h2>
-    <ArticleGrid posts={posts} />
   </section>
 
   <script is:inline>
@@ -55,17 +49,6 @@ const posts = await getCollection('blog');
       font-family: 'Zen Kaku Gothic New', sans-serif;
     }
 
-    .blog-section {
-      margin-top: 4rem;
-      padding: 0 1rem;
-    }
-
-    .blog-section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      color: #1e3932;
-    }
-
     .fade-in {
       opacity: 0;
       transform: translateY(40px);
@@ -85,15 +68,6 @@ const posts = await getCollection('blog');
 
       .featured-title {
         font-size: 1.6rem;
-      }
-
-      .blog-section {
-        padding: 0 1rem;
-      }
-
-      .blog-section h2 {
-        font-size: 1.4rem;
-        text-align: center;
       }
     }
   </style>

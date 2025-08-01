@@ -1,15 +1,19 @@
 ---
-import type { Post } from '../types';
-const { posts } = Astro.props;
-const base = import.meta.env.BASE_URL;
----
+import type { CollectionEntry } from 'astro:content';
 
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+}
+const { posts } = Astro.props;
+const base = import.meta.env.BASE_URL; // これを定義しておく
+---
 <section class="featured-posts">
   <div class="slider-container">
     <div class="slider-track" id="sliderTrack" data-total={posts.length}>
       {posts.map((post, index) => (
-        <div class="slide" key={index}>
-          <a href={`/blog/${post.slug}`}>
+        <div class="slide" key={post.slug || index}> {/* key を post.slug に変更するのも良いでしょう */}
+          {/* ここを修正！ */}
+          <a href={`${base}blog/${post.slug}`}>
             {post.data.image && (
               <img src={`${base}${post.data.image}`} alt={post.data.title} />
             )}

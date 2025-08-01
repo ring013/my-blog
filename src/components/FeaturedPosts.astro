@@ -5,6 +5,7 @@ interface Props {
 }
 
 const { posts } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
 <section class="featured-section">
@@ -12,7 +13,9 @@ const { posts } = Astro.props;
   <div class="featured-posts">
     {posts.map((post) => (
       <a href={`/blog/${post.slug}`} class="card">
-        <img src={post.data.image || '/images/img-test.png'} alt={post.data.title} />
+        {post.data.image && (
+          <img src={`${base}${post.data.image}`} alt={post.data.title} />
+        )}
         <div class="overlay">
           <h3>{post.data.title}</h3>
           <p class="meta">

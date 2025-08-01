@@ -1,6 +1,6 @@
 ---
 title: "Hamamatu castle Store"
-date: 2025-07-29
+date: 2025-07-22
 tags: ["cafe", "Starbucks"]
 description: "city Starbucks"
 image: "/public/images/forest.jpg"

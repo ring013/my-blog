@@ -5,7 +5,7 @@ export interface Props {}
 <header class="header">
   <div class="container">
     <div class="logo">
-      <a href="/">Gira</a>
+      <a href={`${import.meta.env.BASE_URL}`}>Gira</a>
     </div>
 
     <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く">
@@ -16,11 +16,9 @@ export interface Props {}
 
     <nav class="nav-overlay" id="nav">
       <ul>
-        <li><a href="/" class="nav-link" data-path="/">Home</a></li>
-        <li><a href="/blog" class="nav-link" data-path="/blog">Blog</a></li>
-        <li>
-          <a href="/about" class="nav-link" data-path="/about">Profile</a>
-        </li>
+        <li><a href={`${import.meta.env.BASE_URL}`} class="nav-link" data-path="/">Home</a></li>
+        <li><a href={`${import.meta.env.BASE_URL}blog`} class="nav-link" data-path="/blog">Blog</a></li>
+        <li><a href={`${import.meta.env.BASE_URL}about`} class="nav-link" data-path="/about">Profile</a></li>
       </ul>
     </nav>
   </div>

@@ -1,6 +1,7 @@
 ---
 import type { Post } from '../types';
 const { posts } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
 <section class="featured-posts">
@@ -9,7 +10,9 @@ const { posts } = Astro.props;
       {posts.map((post, index) => (
         <div class="slide" key={index}>
           <a href={`/blog/${post.slug}`}>
-            <img src={post.data.image || '/images/img-test.png'} alt={post.data.title} />
+            {post.data.image && (
+              <img src={`${base}${post.data.image}`} alt={post.data.title} />
+            )}
             <div class="caption">
               <h3>{post.data.title}</h3>
             </div>

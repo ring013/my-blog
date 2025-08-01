@@ -3,7 +3,7 @@ export interface Post {
   data: {
     title: string;
     description: string;
-    date: string;
+    date: Date;
     image?: string;
   };
   render: () => Promise<{ Content: any }>;

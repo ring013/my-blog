@@ -3,12 +3,13 @@
 import BaseLayout from './BaseLayout.astro';
 
 const { frontmatter } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={frontmatter.title}>
   <article class="blog-article">
     {frontmatter.image && (
-      <img src={frontmatter.image} alt={frontmatter.title} class="blog-hero-image" />
+      <img src={`${base}${frontmatter.image}`} alt={frontmatter.title} class="blog-hero-image" />
     )}
 
     <h1 class="main-title">{frontmatter.title}</h1>

@@ -3,7 +3,7 @@ title: "Kansui Park Store"
 date: 2025-07-22
 tags: ["cafe", "Starbucks"]
 description: "ocean Starbucks"
-image: "/public/images/ocean.jpg"
+image: "/images/ocean.jpg"
 ---
 
 ## ◼︎Store
